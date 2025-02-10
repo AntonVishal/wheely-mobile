@@ -1,14 +1,30 @@
-import { StyleSheet } from 'react-native';
-
+import {ActivityIndicator, StyleSheet} from 'react-native';
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import {useEffect, useState} from "react";
+import {useExpoRouter} from "expo-router/build/global-state/router-store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function TabOneScreen() {
+  const router = useExpoRouter()
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const checkAuth = async()=>{
+      const token = await AsyncStorage.getItem('userToken');
+      if(!token){
+        router.replace('/onboarding')
+      }else{
+        setLoading(false);
+      }
+    }
+    setTimeout(checkAuth, 2000);
+  }, []);
+  if(loading){
+    return <ActivityIndicator size={"large"} style={{flex:1}} />
+  }
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Text style={styles.title}>Home Page Here</Text>
     </View>
   );
 }

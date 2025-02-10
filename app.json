@@ -13,15 +13,21 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.wheelymobile"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#34518d"
+      },
+      "softwareKeyboardLayoutMode": "pan",
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "package": "com.anonymous.wheelymobile"
     },
     "web": {
       "bundler": "metro",
@@ -30,14 +36,7 @@
     },
     "plugins": [
       "expo-router",
-      "expo-location",
-      "expo-nfc",
-      [
-        "react-native-maps",
-        {
-          "apiKey": "TODO: YOUR_GOOGLE_MAPS_API_KEY"
-        }
-      ]
+      "expo-location"
     ],
     "experiments": {
       "typedRoutes": true
