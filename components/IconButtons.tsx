@@ -1,11 +1,11 @@
-import {StyleSheet, TouchableOpacity} from "react-native";
+import {StyleSheet} from "react-native";
 import {Text, View} from "./Themed"
 import {Image} from "react-native"
 
 // @ts-ignore
 export const IconButton = ({ title, onPress, iconSource, isSelected=false }) =>
     (
-        <View style={[styles.icon_button, isSelected && styles.selected_icon_button]} onTouchStart={onPress}>
+        <View style={[styles.icon_button, isSelected && styles.selected_icon_button]} onTouchStart={onPress} onPointerDown={onPress}>
             <View style={styles.content}>
                 <Image source={iconSource} style={[styles.icon, isSelected && styles.selected_icon]} />
                 <Text style={[styles.text, isSelected && styles.selected_text]}>{title}</Text>

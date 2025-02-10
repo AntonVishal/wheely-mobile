@@ -14,7 +14,7 @@ export default function passenger(){
         <View style={styles.container}>
             <View style={styles.for_spacing}>
                 <Text style={styles.question_text}>Enter your number</Text>
-                <TextInput autoFocus={true} onChangeText={(text)=>setNumber((text))}placeholder={"Mobile Number"} keyboardType={"number-pad"} style={styles.number_input}/>
+                <TextInput autoFocus={true} onChangeText={(text)=>setNumber((text))} placeholder={"e.g. 978XXXX012"} keyboardType={"number-pad"} style={styles.number_input}/>
             </View>
             <View>
                 <Button title={"Continue"} onPress={handleSubmit} disabled={!re.test(number)}/>

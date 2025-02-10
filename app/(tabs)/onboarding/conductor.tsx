@@ -14,7 +14,7 @@ export default function conductor(){
         <View style={styles.container}>
             <View style={styles.for_spacing}>
                 <Text style={styles.question_text}>Enter your ID</Text>
-                <TextInput autoFocus={true} onChangeText={(text)=>setId((text))} placeholder={"Conductor ID"} style={styles.number_input}/>
+                <TextInput autoFocus={true} onChangeText={(text)=>setId((text))} placeholder={"e.g. TN12XXXX78"} style={styles.number_input}/>
             </View>
             <View>
                 <Button title={"Continue"} onPress={handleSubmit} disabled={!re.test(id)}/>

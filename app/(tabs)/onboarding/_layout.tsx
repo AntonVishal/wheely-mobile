@@ -1,8 +1,8 @@
-import {StyleSheet, Image, Button, useWindowDimensions} from "react-native";
+import {StyleSheet, useWindowDimensions} from "react-native";
 import {View, Text} from "@/components/Themed";
 import Animated, {useAnimatedStyle, useSharedValue, withTiming} from "react-native-reanimated";
 import {useEffect} from "react";
-import {Slot, Stack} from "expo-router";
+import {Stack} from "expo-router";
 
 export default function OnboardingScreen(){
     const { height: screenHeight, width:screenWidth } = useWindowDimensions(); // Get screen height
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
         width: "100%",
         padding: 16,
         backgroundColor: "#fff",
-        borderRadius: 24,
+        borderTopStartRadius: 24,
+        borderTopEndRadius: 24
     }
 })
