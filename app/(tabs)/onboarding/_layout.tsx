@@ -10,13 +10,15 @@ export default function OnboardingScreen(){
     const options_screen_height = useSharedValue(0);
     const logo_height = useSharedValue(200);
     useEffect(() => {
-        const animateHeight = ()=> {
-            logo_screen_height.value = withTiming(screenHeight * 0.20, {duration: 1000});
-            options_screen_height.value = withTiming(screenHeight * 0.80, {duration: 1000});
-            logo_height.value = withTiming(80, {duration:1000});
-        }
-        setTimeout(animateHeight, 500);
+        const timeoutId = setTimeout(() => {
+            logo_screen_height.value = withTiming(screenHeight * 0.2, { duration: 1000 });
+            options_screen_height.value = withTiming(screenHeight * 0.8, { duration: 1000 });
+            logo_height.value = withTiming(80, { duration: 1000 });
+        }, 500);
+
+        return () => clearTimeout(timeoutId); // Cleanup function
     }, []);
+
 
     const animatedLogoScreenHeight = useAnimatedStyle(() => {
         return {
@@ -30,7 +32,8 @@ export default function OnboardingScreen(){
     });
     const animatedLogo = useAnimatedStyle(()=>{
         return{
-            height: logo_height.value
+            height: logo_height.value,
+            width: (logo_height.value / 200) *200
         }
     })
     return(
@@ -60,10 +63,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        color: "#fff"
     },
     logo:{
-        height: 80,
         resizeMode: "contain"
     },
     logo_one_line:{
