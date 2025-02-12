@@ -4,8 +4,6 @@
  */
 
 import {
-  ButtonProps,
-  Pressable,
   StyleSheet,
   Text as DefaultText,
   TouchableOpacity,
@@ -14,7 +12,6 @@ import {
 
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "react-native";
-import callsites from "callsites";
 
 type ThemeProps = {
   lightColor?: string;
