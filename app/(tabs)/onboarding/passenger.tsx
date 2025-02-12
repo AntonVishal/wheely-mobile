@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
   container: {
     paddingBottom: 16,
     paddingTop: 10,
-    paddingHorizontal: 8,
+    paddingHorizontal: 20,
     flex: 1,
     justifyContent: "space-between",
   },
   for_spacing: {
-    gap: 16,
+    gap: 16
   },
   question_text: {
     fontSize: 21,

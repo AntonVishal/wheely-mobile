@@ -1,5 +1,4 @@
 import { ActivityIndicator, StyleSheet } from "react-native";
-import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
 import { useEffect, useState } from "react";
 import { useExpoRouter } from "expo-router/build/global-state/router-store";

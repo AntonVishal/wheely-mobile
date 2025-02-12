@@ -4,9 +4,9 @@ import { Image } from "react-native";
 
 interface IconButtonProps {
   title: string;
-  onPress: () => void;
+  onPress?: () => void;
   iconSource: any;
-  isSelected: boolean;
+  isSelected?: boolean;
 }
 
 export const IconButton = ({

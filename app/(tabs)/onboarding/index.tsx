@@ -1,13 +1,11 @@
-import { Text, View, Button } from "@/components/Themed";
-import { Image, StyleSheet, TouchableOpacity } from "react-native";
-import { useState } from "react";
+import { Text, View } from "@/components/Themed";
+import { StyleSheet } from "react-native";
 import { IconButton } from "@/components/IconButtons";
 import { useExpoRouter } from "expo-router/build/global-state/router-store";
 
 export default function choose() {
-  const [chosen, setChosen] = useState("");
   const router = useExpoRouter();
-  const handleSubmit = () => {
+  const handleSubmit = (chosen:string) => {
     if (chosen == "Passenger") {
       router.push("/onboarding/passenger");
     } else if (chosen == "Conductor") {
@@ -21,20 +19,19 @@ export default function choose() {
         <View style={styles.options}>
           <IconButton
             title={"Passenger"}
-            onPress={() => setChosen("Passenger")}
-            isSelected={chosen == "Passenger"}
+            onPress={() => {
+              handleSubmit("Passenger")
+            }}
             iconSource={require("../../../assets/images/passenger-icon.png")}
           />
           <IconButton
             title={"Conductor"}
-            onPress={() => setChosen("Conductor")}
-            isSelected={chosen == "Conductor"}
+            onPress={() => {
+              handleSubmit("Conductor");
+            }}
             iconSource={require("../../../assets/images/conductor-icon.png")}
           />
         </View>
-      </View>
-      <View>
-        <Button title={"Continue"} onPress={handleSubmit} disabled={!chosen} />
       </View>
     </View>
   );
