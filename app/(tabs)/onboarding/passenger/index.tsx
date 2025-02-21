@@ -2,12 +2,19 @@ import { Text, View, Button } from "@/components/Themed";
 import { StyleSheet, TextInput } from "react-native";
 import { useState } from "react";
 import { useExpoRouter } from "expo-router/build/global-state/router-store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function passenger() {
   const [number, setNumber] = useState("");
-  const re = new RegExp("[0-9]{10}");
+  const re = new RegExp("^[0-9]{10}$");
   const router = useExpoRouter();
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    const addToken = async ()=>{
+      await AsyncStorage.setItem("userToken", "yes");
+    }
+    addToken();
+    router.replace("");
+  };
   return (
     <View style={styles.container}>
       <View style={styles.for_spacing}>
