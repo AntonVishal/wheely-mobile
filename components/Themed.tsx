@@ -56,6 +56,8 @@ type CustomButtonProps = {
   title: string;
   onPress?: () => void;
   disabled?: boolean;
+  accessibilityLabel?: string;  // Add this
+  accessibilityHint?: string;    
 };
 
 export function Button({

@@ -7,16 +7,23 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export default function TabOneScreen() {
   const router = useExpoRouter();
   const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   const checkAuth = async () => {
+  //     const token = await AsyncStorage.getItem("userToken");
+  //     if (!token) {
+  //       router.navigate("/onboarding");
+  //     } else {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   setTimeout(checkAuth, 2000);
+  // }, []);
   useEffect(() => {
-    const checkAuth = async () => {
-      const token = await AsyncStorage.getItem("userToken");
-      if (!token) {
-        router.replace("/onboarding");
-      } else {
-        setLoading(false);
-      }
-    };
-    setTimeout(checkAuth, 2000);
+    // Bypass all checks and go straight to onboarding
+    setTimeout(() => {
+      router.navigate("/onboarding");
+      setLoading(false);
+    }, 2000);
   }, []);
   if (loading) {
     return <ActivityIndicator size={"large"} style={{ flex: 1 }} />;

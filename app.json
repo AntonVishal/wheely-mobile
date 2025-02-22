@@ -36,7 +36,12 @@
     },
     "plugins": [
       "expo-router",
-      "expo-location"
+      "expo-location",
+      "expo-font",
+      
+      ["expo-media-library", {
+        "photosPermission": "The app accesses your photos to let you share them with your friends."
+      }]
     ],
     "experiments": {
       "typedRoutes": true
