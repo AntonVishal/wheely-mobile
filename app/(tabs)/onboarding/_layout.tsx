@@ -70,6 +70,10 @@ export default function OnboardingScreen() {
                         name={"index"}
                         options={{ headerShown: false }}
                     />
+                    <Stack.Screen
+                        name={"step2"}
+                        options={{ headerShown: true }}
+                    />
                 </Stack>
             </Animated.View>
         </View>
