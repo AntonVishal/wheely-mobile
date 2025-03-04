@@ -8,6 +8,17 @@ import MapView, {MapMarker, Polyline} from "react-native-maps";
 export default function TabOneScreen() {
   const router = useExpoRouter();
   const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   const checkAuth = async () => {
+  //     const token = await AsyncStorage.getItem("userToken");
+  //     if (!token) {
+  //       router.navigate("/onboarding");
+  //     } else {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   setTimeout(checkAuth, 2000);
+  // }, []);
   useEffect(() => {
     const checkAuth = async () => {
       const token = await AsyncStorage.getItem("userToken");
@@ -28,7 +39,6 @@ export default function TabOneScreen() {
     return () => {
       appStateListener.remove();
     };
-
   }, []);
   if (loading) {
     return <ActivityIndicator size={"large"} style={{ flex: 1 }} />;
